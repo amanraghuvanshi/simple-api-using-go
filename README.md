@@ -23,7 +23,8 @@ Steps:
 
 > we need to bind the JSON which was the part of data payload of this request to this book object
 
-What we done is that we created a "book" object newBook, and then we are trying to Bind the data of JSON to the new book by passing its pointer, if err then return, otherwise, we are appending the newBook to slice of books, and we are returning in with statusCode
+What we done is that we created a "book" object newBook, and then we are trying to Bind the data of JSON to the new book by passing its pointer, if err then return, otherwise, we are appending the newBook to slice of books, and we are returning in with statusCode![Result](https://user-images.githubusercontent.com/110326399/211983504-e723e9d9-88e9-4c86-a538-2db322104bd2.png)
+
 and in main, we get a POST method with the same route
 
 For running the command: 
@@ -48,3 +49,7 @@ There will be two function serving each one of the operation, and they will incr
 	Next, we would be checking the quantity if its 0 then error, otherwise quantity-- and returning the status code with book
 Route: router.PATCH("/checkout", checkOutBook)
 Command: curl localhost:8080/checkout?id=2 --request "PATCH"
+
+
+![CheckOut Res](https://user-images.githubusercontent.com/110326399/211983563-9dd6f39a-6142-49dd-942b-fe31411609bb.png)
+![CheckOut Resp](https://user-images.githubusercontent.com/110326399/211983574-f66163bd-7bc8-43fc-875e-7bbb05088a2e.png)
