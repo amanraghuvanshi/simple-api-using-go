@@ -8,10 +8,10 @@ import (
 )
 
 type book struct {
-	ID       string `JSON:"id"`
-	Title    string `JSON:"title"`
-	Author   string `JSON:"author"`
-	Quantity int    `JSON:"quantity"`
+	ID       string `JSON:"id,omitempty"`
+	Title    string `JSON:"title,omitempty"`
+	Author   string `JSON:"author,omitempty"`
+	Quantity int    `JSON:"quantity,omitempty"`
 }
 
 var books = []book{
@@ -42,7 +42,7 @@ func getBookbyID(id string) (*book, error) {
 			return &books[i], nil
 		}
 	}
-	return nil, errors.New("Book Not Found")
+	return nil, errors.New("book Not found")
 }
 
 func createBook(c *gin.Context) {
@@ -97,7 +97,7 @@ func main() {
 	router := gin.Default()
 	router.GET("/books", getBooks)
 	router.GET("/books/:id", bookbyID)
-	router.POST("/books", getBooks)
+	router.POST("/books", createBook)
 	router.PATCH("/checkout", checkOutBook)
 	router.PATCH("/return", returnBook)
 	router.Run("localhost:8080")
